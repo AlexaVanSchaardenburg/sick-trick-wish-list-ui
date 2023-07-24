@@ -78,13 +78,14 @@ describe('Filling out the form', () => {
         }
         ]
     })
+
+    //NOTE: I didn't get to testing the state - I wasn;t sure how to grab the state from the app.
     //visit the page
     cy.visit('http://localhost:3000/')
 
     //update the stance
     cy.get('[name=stance]').select('regular')
     //check the stance is updated in state
-
 
     //update the name
     cy.get('[name=trick-name]').type('Trick Name')
