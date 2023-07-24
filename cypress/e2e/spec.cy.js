@@ -2,11 +2,38 @@
 describe('On page load', () => {
   it('Should display a title, a form, and three preloaded tricks', () => {
     //intercept the fetch
+    cy.intercept('http://localhost:3001/api/v1/tricks', {
+      statusCode: 201,
+      body: [
+        {
+        "stance": "regular",
+        "name": "treflip",
+        "obstacle": "flat ground",
+        "tutorial": "https://www.youtube.com/watch?v=XGw3YkQmNig",
+        "id": 1
+        },
+        {
+        "stance": "switch",
+        "name": "heelflip",
+        "obstacle": "stairs",
+        "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA",
+        "id": 2
+        },
+        {
+        "stance": "regular",
+        "name": "frontside 50-50, backside 180 out",
+        "obstacle": "ledge",
+        "tutorial": "https://www.youtube.com/watch?v=9N9swrZU1HA",
+        "id": 3
+        }
+        ]
+    })
     //visit the page
     cy.visit('http://localhost:3000/')
     //test that the h1 is there
     cy.contains('h1', 'Sick Trick Wish List')
     //test that the form with all 4 inputs is there
+    cy.contains()
     //test that there are three trick cards with the expected stances, names, obstacles, link title and links
   })
 })
