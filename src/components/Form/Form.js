@@ -4,13 +4,13 @@ import { useState } from 'react';
 const Form = ({ addTrick }) => {
 
   const [stance, setStance] = useState('')
-  const [trick, setTrick] = useState('')
+  const [name, setName] = useState('')
   const [obstacle, setObstacle] = useState('')
   const [tutorial, setTutorial] = useState('')
 
   const clearInputs = () => {
     setStance('')
-    setTrick('')
+    setName('')
     setObstacle('')
     setTutorial('')
   }
@@ -20,7 +20,7 @@ const Form = ({ addTrick }) => {
     const newTrick = {
       id: Date.now(),
       stance,
-      trick,
+      name,
       obstacle,
       tutorial
     }
@@ -37,7 +37,7 @@ const Form = ({ addTrick }) => {
         <option value="switch">Switch</option>
       </select>
 
-      <input className='form-input' type="text" name="trick-name" placeholder='Name of Trick' value={trick}  onChange={event => setTrick(event.target.value)}></input>
+      <input className='form-input' type="text" name="trick-name" placeholder='Name of Trick' value={name}  onChange={event => setName(event.target.value)}></input>
 
       <select className='form-input' name="obstacle" value={obstacle}  onChange={event => setObstacle(event.target.value)}>
         <option value="" disabled selected>Choose your Obstacle</option>

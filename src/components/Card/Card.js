@@ -1,12 +1,12 @@
 import './Card.css';
 
-const Card = ({ thisTrick }) => {
+const Card = ({ trick }) => {
 
-  let  { stance, trick, obstacle, tutorial } = thisTrick
+  let  { stance, name, obstacle, tutorial } = trick
 
   return (
     <div className="Card">
-      <h2>{`${stance} ${trick}`}</h2>
+      <h2>{`${stance} ${name}`}</h2>
       <p>{`Obstacle: ${obstacle}`}</p>
       <p>Link to Tutorial</p>
       <a href={tutorial}>{tutorial}</a>

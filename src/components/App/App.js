@@ -5,16 +5,16 @@ import Form from '../Form/Form.js'
 
 const App = () => {
 
-  const [allTricks, setAllTricks] = useState([])
+  const [tricks, setTricks] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3001/api/v1/tricks')
       .then(res => res.json())
-      .then(res => setAllTricks(res))
+      .then(res => setTricks(res))
   }, [])
 
   const addTrick = (newTrick) => {
-    setAllTricks([...allTricks, newTrick])
+    setTricks([...tricks, newTrick])
   }
 
   return (
@@ -22,7 +22,7 @@ const App = () => {
       <h1>Sick Trick Wish List</h1>
       <Form addTrick={addTrick}/>
       <div className='cards'>
-        {allTricks.map(thisTrick => <Card thisTrick={thisTrick}/>)}
+        {tricks.map(trick => <Card trick={trick}/>)}
       </div>
     </div>
   );
